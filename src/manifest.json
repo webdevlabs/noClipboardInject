@@ -1,0 +1,10 @@
+{
+    "content_scripts": [{
+        "js": ["script.js"],
+        "matches": ["http://*/*", "https://*/*"]
+    }],
+    "description": "prevent clipboard text injection on copy events.",
+    "manifest_version": 2,
+    "name": "noClipboardInject",
+    "version": "1.0"
+}
