@@ -1,10 +1,13 @@
 (function() {
-    var disableSelections = function() {
+    const excludes = ['www.facebook.com', 'github.com'];
+    const disableSelections = function() {
         document.getSelection = window.getSelection = function() {
-            return { isCollapsed: true };
+            return;
         };
     };
-    var script = document.createElement("script");
-    script.appendChild(document.createTextNode("(" + disableSelections + ")();"));
-    (document.body || document.head || document.documentElement).appendChild(script);
+    if (!excludes.indexOf(location.host)) {
+        let script = document.createElement("script");
+        script.appendChild(document.createTextNode("(" + disableSelections + ")();"));
+        (document.body || document.head || document.documentElement).appendChild(script);
+    }
 })();
