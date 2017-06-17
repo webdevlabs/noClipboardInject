@@ -5,7 +5,7 @@
             return;
         };
     };
-    if (!excludes.indexOf(location.host)) {
+    if (excludes.indexOf(location.host) == '-1') {
         let script = document.createElement("script");
         script.appendChild(document.createTextNode("(" + disableSelections + ")();"));
         (document.body || document.head || document.documentElement).appendChild(script);
